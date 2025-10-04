@@ -138,13 +138,6 @@ air-quality-rag-chatbot/
 
 **Query**: "What is the air quality in Accra today, and is it safe for children?"
 
-**Expected Response Structure**:
-1. One-line summary of current AQ
-2. Data grounding with source & timestamp
-3. Safety recommendation for children
-4. Extra tips (indoor air improvement, symptoms)
-5. Confidence/caveat
-
 ## 🚀 Deployment
 
 ### Local Development
@@ -157,15 +150,6 @@ python main.py
 uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
-### Docker (Optional)
-```dockerfile
-FROM python:3.9-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-COPY . .
-CMD ["python", "main.py"]
-```
 
 ## 📊 Data Sources
 
@@ -173,8 +157,8 @@ CMD ["python", "main.py"]
 - Global air quality measurements
 - Real-time PM2.5, PM10, NO2, O3 data
 - Free API with rate limits
-
-### Weather APIs
+### AIRNOW APIs
+### Weath APIs
 - Meteorological conditions
 - Temperature inversions
 - Wind patterns affecting air quality
@@ -203,13 +187,3 @@ CMD ["python", "main.py"]
 
 This project is open source and available under the MIT License.
 
-## 🙏 Acknowledgments
-
-- NASA Space Apps Challenge 2025
-- OpenAQ for air quality data
-- Google Gemini for AI capabilities
-- WHO/EPA for health guidelines
-
----
-
-**NASA Space Apps Challenge 2025 - Air Quality Track** 🌍
