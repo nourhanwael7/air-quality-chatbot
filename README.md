@@ -100,12 +100,6 @@ air-quality-rag-chatbot/
 - `GET /data/refresh`: Trigger data refresh
 - `GET /data/sources`: Available data sources
 
-## 🧪 Testing
-
-### Test Case Example
-
-**Query**: "What is the air quality in Accra today, and is it safe for children?"
-
 ## 🚀 Deployment
 
 ### Local Development
