@@ -7,7 +7,6 @@ A modular Retrieval-Augmented Generation (RAG) chatbot for air quality monitorin
 - **Modular Architecture**: Pluggable data sources (OpenAQ, Weather APIs, WHO/EPA guidelines)
 - **RAG Pipeline**: Semantic search and retrieval with FAISS vector store
 - **AI-Powered**: Uses Google Gemini 2.5 Flash for advanced natural language understanding and generation
-- **Text-Only Responses**: No images, charts, or multimedia - pure text advice
 - **Health-Focused**: Tailored recommendations for children, elderly, asthma patients, pregnant women
 - **Real-Time Data**: Live air quality data from OpenAQ API
 - **FastAPI Backend**: RESTful API with automatic documentation
@@ -23,7 +22,7 @@ A modular Retrieval-Augmented Generation (RAG) chatbot for air quality monitorin
 
 1. **Navigate to the project directory**
    ```bash
-   cd air-quality-rag-chatbot
+   cd air-quality-chatbot
    ```
 
 2. **Install dependencies**
@@ -123,7 +122,7 @@ air-quality-rag-chatbot/
 
 - `GEMINI_API_KEY`: Required for AI generation
 - `OPENAQ_API_KEY`: Optional for OpenAQ (has free tier)
-- `WEATHER_API_KEY`: Optional for weather data
+- `AIRNOW_API_KEY`: Optional for weather data
 
 ### API Endpoints
 
