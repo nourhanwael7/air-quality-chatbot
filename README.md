@@ -1,4 +1,4 @@
-# NASA Space Apps Challenge 2025 - Air Quality RAG Chatbot
+# Air Quality Chatbot
 
 A modular Retrieval-Augmented Generation (RAG) chatbot for air quality monitoring and health recommendations. Built for the NASA Space Apps Challenge 2025 Air Quality track.
 
