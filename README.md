@@ -46,39 +46,7 @@ A modular Retrieval-Augmented Generation (RAG) chatbot for air quality monitorin
    - Health Check: http://localhost:8000/health
    - Chat Endpoint: http://localhost:8000/chat
 
-## 📡 API Usage
 
-### Chat with the Air Quality Assistant
-
-```bash
-curl -X POST "http://localhost:8000/chat" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "message": "What is the air quality in Accra today, and is it safe for children?",
-    "location": "Accra, Ghana",
-    "user_context": {
-      "age_group": "children",
-      "health_conditions": {}
-    }
-  }'
-```
-
-### Example Response
-
-```json
-{
-  "response": "Based on OpenAQ measurement in Accra at 2025-01-03 09:00 UTC: PM2.5 = 78 μg/m³ (Unhealthy for Sensitive Groups). For children, this level poses health risks. I recommend keeping children indoors, using air purifiers, and limiting outdoor activities. Monitor for symptoms like coughing or difficulty breathing.",
-  "confidence": 0.85,
-  "data_sources": ["OpenAQ", "WHO/EPA Guidelines"],
-  "timestamp": "2025-01-03T09:00:00Z",
-  "recommendations": [
-    "Children should avoid outdoor activities when air quality is poor",
-    "Use air purifiers in children's bedrooms and play areas",
-    "Stay indoors with windows closed",
-    "Use air purifiers if available"
-  ]
-}
-```
 
 ## 🏗️ Architecture
 
