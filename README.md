@@ -1,151 +1,118 @@
 # Air Quality Chatbot
 
-A modular Retrieval-Augmented Generation (RAG) chatbot for air quality monitoring and health recommendations. Built for the NASA Space Apps Challenge 2025 Air Quality track.
+A modular Retrieval-Augmented Generation (RAG) chatbot for air quality monitoring and health recommendations. 
 
-## 🌟 Features
+## Features
 
-- **Modular Architecture**: Pluggable data sources (OpenAQ, Weather APIs, WHO/EPA guidelines)
-- **RAG Pipeline**: Semantic search and retrieval with FAISS vector store
-- **AI-Powered**: Uses Google Gemini 2.5 Flash for advanced natural language understanding and generation
-- **Health-Focused**: Tailored recommendations for children, elderly, asthma patients, pregnant women
-- **Real-Time Data**: Live air quality data from OpenAQ API
-- **FastAPI Backend**: RESTful API with automatic documentation
+- Modular Architecture with pluggable data sources
+- RAG Pipeline using FAISS vector store for semantic search
+- AI-powered generation with Google Gemini 2.5 Flash
+- Health-focused recommendations for vulnerable groups
+- Real-time data from OpenAQ API
+- FastAPI backend with automatic documentation
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
 - Python 3.8+
-- API keys for Gemini and optional weather services
+- Gemini API key (required)
+- Optional: OpenAQ and weather service API keys
 
 ### Installation
 
-1. **Navigate to the project directory**
+1. Navigate to project directory
    ```bash
    cd air-quality-chatbot
    ```
 
-2. **Install dependencies**
+2. Install dependencies
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Set up environment variables**
+3. Configure environment
    ```bash
    cp env.example .env
    # Edit .env with your API keys
    ```
 
-4. **Run the application**
+4. Run application
    ```bash
    python main.py
    ```
 
-5. **Access the API**
-   - API Documentation: http://localhost:8000/docs
-   - Health Check: http://localhost:8000/health
-   - Chat Endpoint: http://localhost:8000/chat
+5. Access API at http://localhost:8000/docs
 
-
-
-## 🏗️ Architecture
-
-### Modular Design
+## Project Structure
 
 ```
 air-quality-rag-chatbot/
-├── main.py                 # FastAPI application
-├── requirements.txt        # Dependencies
-├── env.example            # Environment variables template
+├── main.py                      # FastAPI application
+├── requirements.txt             # Dependencies
+├── env.example                  # Environment template
 ├── src/
-│   ├── rag_pipeline.py    # Main RAG orchestrator
-│   ├── vector_store.py    # FAISS vector store
-│   ├── response_formatter.py # Response formatting
-│   └── data_clients/      # Modular data sources
+│   ├── rag_pipeline.py         # RAG orchestrator
+│   ├── vector_store.py         # FAISS vector store
+│   ├── response_formatter.py   # Response formatting
+│   └── data_clients/
 │       ├── base_client.py
 │       ├── openaq_client.py
 │       ├── weather_client.py
 │       └── guidelines_client.py
-└── data/                  # Vector store data (auto-created)
+└── data/                        # Vector store (auto-created)
 ```
 
-### Data Sources
+## API Endpoints
 
-1. **OpenAQ Client**: Global air quality data
-2. **Weather Client**: Meteorological data and forecasts
-3. **Guidelines Client**: WHO/EPA health guidelines
+- `GET /` - Basic information
+- `GET /health` - Health check
+- `POST /chat` - Main chat endpoint
+- `GET /data/refresh` - Trigger data refresh
+- `GET /data/sources` - Available data sources
 
-### RAG Pipeline
+## Configuration
 
-1. **Query Processing**: Parse user intent and location
-2. **Retrieval**: Semantic search in vector store
-3. **Live Data**: Fetch current air quality if needed
-4. **Context Building**: Combine retrieved and live data
-5. **Generation**: Use Gemini to generate response
-6. **Formatting**: Structure response with recommendations
+Set these environment variables in `.env`:
 
-## 🔧 Configuration
+- `GEMINI_API_KEY` - Required for AI generation
+- `OPENAQ_API_KEY` - Optional for OpenAQ data
+- `AIRNOW_API_KEY` - Optional for weather data
 
-### Environment Variables
+## Data Sources
 
-- `GEMINI_API_KEY`: Required for AI generation
-- `OPENAQ_API_KEY`: Optional for OpenAQ (has free tier)
-- `AIRNOW_API_KEY`: Optional for weather data
+**OpenAQ**: Global air quality measurements including PM2.5, PM10, NO2, O3
 
-### API Endpoints
+**Weather APIs**: Meteorological conditions, temperature inversions, wind patterns
 
-- `GET /`: Basic information
-- `GET /health`: Health check
-- `POST /chat`: Main chat endpoint
-- `GET /data/refresh`: Trigger data refresh
-- `GET /data/sources`: Available data sources
+**WHO/EPA Guidelines**: Health standards, protective measures, vulnerable group recommendations
 
-## 🚀 Deployment
+## Deployment
 
-### Local Development
+Development:
 ```bash
 python main.py
 ```
 
-### Production with Uvicorn
+Production:
 ```bash
 uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
-
-## 📊 Data Sources
-
-### OpenAQ
-- Global air quality measurements
-- Real-time PM2.5, PM10, NO2, O3 data
-- Free API with rate limits
-### AIRNOW APIs
-### Weath APIs
-- Meteorological conditions
-- Temperature inversions
-- Wind patterns affecting air quality
-
-### WHO/EPA Guidelines
-- Health-based air quality standards
-- Protective measures
-- Vulnerable group recommendations
-
-## 🔒 Security
+## Security
 
 - Input validation and sanitization
-- API key management
-- Rate limiting (implement as needed)
+- Secure API key management
+- Rate limiting capability
 - CORS configuration
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+3. Make your changes and test
+4. Submit a pull request
 
-## 📄 License
+## License
 
-This project is open source and available under the MIT License.
-
+MIT License
